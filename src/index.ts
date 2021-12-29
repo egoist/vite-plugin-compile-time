@@ -46,15 +46,15 @@ const createPlugins = (): Plugin[] => {
         )
           return
 
-        const s = new MagicString(code)
         const m = [
           ...code.matchAll(/import\.meta\.compileTime\(['"`]([^'"`]+)['"`]\)/g),
         ]
 
         if (m.length === 0) return
 
+        const s = new MagicString(code)
         const dir = path.dirname(id)
-        for (const [i, item] of m.entries()) {
+        for (const item of m) {
           const start = item.index!
           const end = item.index! + item[0].length
           const filepath = path.resolve(dir, item[1])
