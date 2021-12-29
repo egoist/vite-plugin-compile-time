@@ -29,15 +29,18 @@ Compile-time data:
 
 ```ts
 // get-data.ts
+import fs from "fs"
+
 export default async () => {
+  const post = await fs.promise.readFile("./post.md", "utf8")
   return {
-    data: { hello: "world" },
+    data: { post },
   }
 }
 
-// in your code
+// get the data at compile time
 const data = import.meta.compileTime("./get-data.ts")
-assert.deepEqual(data, { hello: "world" })
+assert.deepEqual(data, { post: "....." })
 ```
 
 Compile-time code:
@@ -50,7 +53,7 @@ export default async () => {
   }
 }
 
-// in your code
+// insert the generated code at compile time
 let count = 0
 import.meta.compileTime("./generate-code.ts")
 assert.equal(count, 1)
