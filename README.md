@@ -32,7 +32,7 @@ Compile-time data:
 import fs from "fs"
 
 export default async () => {
-  const post = await fs.promise.readFile("./post.md", "utf8")
+  const post = await fs.promises.readFile("./post.md", "utf8")
   return {
     data: { post },
   }
