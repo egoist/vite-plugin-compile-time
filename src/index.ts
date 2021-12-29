@@ -6,6 +6,11 @@ import devalue from "devalue"
 
 type MaybePromise<T> = T | Promise<T>
 
+export type CompileTimeFunctionArgs = {
+  /** Root directory of the Vite project */
+  root: string
+}
+
 export type CompileTimeFunctionResult = MaybePromise<{
   /** Get data at compile time */
   data?: any
@@ -15,7 +20,9 @@ export type CompileTimeFunctionResult = MaybePromise<{
   watchFiles?: string[]
 }>
 
-export type CompileTimeFunction = () => CompileTimeFunctionResult
+export type CompileTimeFunction = (
+  args: CompileTimeFunctionArgs,
+) => CompileTimeFunctionResult
 
 const createPlugins = (): Plugin[] => {
   let useSourceMap = false
@@ -23,12 +30,14 @@ const createPlugins = (): Plugin[] => {
     string,
     { data?: any; code?: string; watchFiles?: string[] }
   > = new Map()
+  let root = process.cwd()
   return [
     {
       name: "compile-time",
       enforce: "pre",
       configResolved(config) {
         useSourceMap = !!config.build.sourcemap
+        root = config.root
       },
       configureServer(server) {
         server.watcher.on("all", (_, id) => {
@@ -65,7 +74,7 @@ const createPlugins = (): Plugin[] => {
             const { mod, dependencies } = await bundleRequire({ filepath })
             const defaultExport: CompileTimeFunction | undefined =
               mod.default || mod
-            cache = (defaultExport && (await defaultExport())) || {}
+            cache = (defaultExport && (await defaultExport({ root }))) || {}
             cache.watchFiles = [
               filepath,
               ...(cache.watchFiles || []),

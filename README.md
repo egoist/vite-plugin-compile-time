@@ -69,9 +69,14 @@ declare interface ImportMeta {
 You should return a default export with object containing `code` or `data` property:
 
 ```ts
-import { CompileTimeFunctionResult } from "vite-plugin-compile-time"
+import {
+  CompileTimeFunctionArgs,
+  CompileTimeFunctionResult,
+} from "vite-plugin-compile-time"
 
-export default async (): CompileTimeFunctionResult => {
+export default async (
+  args: CompileTimeFunctionArgs,
+): CompileTimeFunctionResult => {
   return {
     data: {
       hello: "world",

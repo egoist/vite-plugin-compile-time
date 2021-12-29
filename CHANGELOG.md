@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Pass `root` directory to the compile-time function
 
 ## 0.1.1
 
