@@ -90,6 +90,8 @@ export default async (
 }
 ```
 
+See the type docs on [paka.dev](https://paka.dev/npm/vite-plugin-compile-time#module-index-export-CompileTimeFunction).
+
 ## Sponsors
 
 [![sponsors](https://sponsors-images.egoist.sh/sponsors.svg)](https://github.com/sponsors/egoist)
