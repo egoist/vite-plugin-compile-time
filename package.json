@@ -30,7 +30,7 @@
     "tsup": "5.11.6",
     "typescript": "4.5.4",
     "vite": "^2.7.9",
-    "vitest": "^0.0.118"
+    "vitest": "0.0.119"
   },
   "dependencies": {
     "bundle-require": "^2.2.0",

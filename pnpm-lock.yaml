@@ -11,7 +11,7 @@ specifiers:
   tsup: 5.11.6
   typescript: 4.5.4
   vite: ^2.7.9
-  vitest: ^0.0.118
+  vitest: 0.0.119
 
 dependencies:
   bundle-require: 2.2.0_esbuild@0.14.9
@@ -26,7 +26,7 @@ devDependencies:
   tsup: 5.11.6_typescript@4.5.4
   typescript: 4.5.4
   vite: 2.7.9
-  vitest: 0.0.118_vite@2.7.9
+  vitest: 0.0.119_vite@2.7.9
 
 packages:
 
@@ -1210,8 +1210,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest/0.0.118_vite@2.7.9:
-    resolution: {integrity: sha512-2zBpowIaVAMPFB+/DkHFpt63QNXMz737dKTpLtC2t4RNUfLS4n+KKg14nFexj5VlhMf4ntSkrvDHnrE+6gFTmg==}
+  /vitest/0.0.119_vite@2.7.9:
+    resolution: {integrity: sha512-8k71f4LWW2Uvy/6FdsaWjTbspu3vbp/p4ACdRUt5FCY+erEZiGbxld3FJCGu+tkFGa+FnoGcPb4fRxZZ49AcHw==}
     engines: {node: '>=14.14.0'}
     hasBin: true
     peerDependencies:
