@@ -4,7 +4,7 @@
 
 # vite-plugin-compile-time
 
-[![npm version](https://badgen.net/npm/v/vite-plugin-compile-time)](https://npm.im/vite-plugin-compile-time) [![npm downloads](https://badgen.net/npm/dm/vite-plugin-compile-time)](https://npm.im/vite-plugin-compile-time)
+[![npm version](https://badgen.net/npm/v/vite-plugin-compile-time?v=2)](https://npm.im/vite-plugin-compile-time) [![npm downloads](https://badgen.net/npm/dm/vite-plugin-compile-time)](https://npm.im/vite-plugin-compile-time)
 
 Use this plugin to generate code at compile time or get data at compile time in your Vite projects.
 
