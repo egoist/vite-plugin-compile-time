@@ -33,7 +33,7 @@
     "vitest": "0.0.122"
   },
   "dependencies": {
-    "bundle-require": "^2.2.0",
+    "bundle-require": "^3.0.0",
     "devalue": "^2.0.1",
     "esbuild": "^0.14.9",
     "magic-string": "^0.25.7"
