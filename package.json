@@ -36,7 +36,7 @@
     "bundle-require": "^2.2.0",
     "devalue": "^2.0.1",
     "esbuild": "^0.14.9",
-    "magic-string": "^0.25.7"
+    "magic-string": "^0.26.0"
   },
   "peerDependencies": {
     "vite": ">=2"
