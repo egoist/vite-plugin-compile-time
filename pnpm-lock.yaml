@@ -6,7 +6,7 @@ specifiers:
   devalue: ^2.0.1
   esbuild: ^0.14.9
   magic-string: ^0.25.7
-  prettier: 2.5.1
+  prettier: 2.7.1
   sucrase: 3.20.3
   tsup: 5.11.9
   typescript: 4.5.4
@@ -21,7 +21,7 @@ dependencies:
 
 devDependencies:
   '@egoist/prettier-config': 1.0.0
-  prettier: 2.5.1
+  prettier: 2.7.1
   sucrase: 3.20.3
   tsup: 5.11.9_typescript@4.5.4
   typescript: 4.5.4
@@ -987,8 +987,8 @@ packages:
       source-map-js: 1.0.1
     dev: true
 
-  /prettier/2.5.1:
-    resolution: {integrity: sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==}
+  /prettier/2.7.1:
+    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
