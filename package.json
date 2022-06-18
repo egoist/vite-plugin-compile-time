@@ -27,7 +27,7 @@
     "@egoist/prettier-config": "1.0.0",
     "prettier": "2.5.1",
     "sucrase": "3.20.3",
-    "tsup": "5.11.9",
+    "tsup": "5.12.9",
     "typescript": "4.5.4",
     "vite": "2.7.9",
     "vitest": "0.0.122"
