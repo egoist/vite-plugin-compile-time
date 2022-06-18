@@ -9,7 +9,7 @@ specifiers:
   prettier: 2.5.1
   sucrase: 3.20.3
   tsup: 5.11.9
-  typescript: 4.5.4
+  typescript: 4.7.4
   vite: 2.7.9
   vitest: 0.0.122
 
@@ -23,8 +23,8 @@ devDependencies:
   '@egoist/prettier-config': 1.0.0
   prettier: 2.5.1
   sucrase: 3.20.3
-  tsup: 5.11.9_typescript@4.5.4
-  typescript: 4.5.4
+  tsup: 5.11.9_typescript@4.7.4
+  typescript: 4.7.4
   vite: 2.7.9
   vitest: 0.0.122_vite@2.7.9
 
@@ -1147,7 +1147,7 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
-  /tsup/5.11.9_typescript@4.5.4:
+  /tsup/5.11.9_typescript@4.7.4:
     resolution: {integrity: sha512-APFcd9qKblMVO35O5OyIcfa4lwBrVNinwtifUojO78I6j0aDhS4fQ06gq6vF1b/+Z83pYDWNb0R2fmO9PX3IVQ==}
     hasBin: true
     peerDependencies:
@@ -1170,7 +1170,7 @@ packages:
       source-map: 0.7.3
       sucrase: 3.20.3
       tree-kill: 1.2.2
-      typescript: 4.5.4
+      typescript: 4.7.4
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1180,8 +1180,8 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /typescript/4.5.4:
-    resolution: {integrity: sha512-VgYs2A2QIRuGphtzFV7aQJduJ2gyfTljngLzjpfW9FoYZF6xuw1W0vW9ghCKLfcWrCFxK81CSGRAvS1pn4fIUg==}
+  /typescript/4.7.4:
+    resolution: {integrity: sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
