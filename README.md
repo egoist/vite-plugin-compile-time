@@ -14,6 +14,8 @@ Use this plugin to generate code at compile time or get data at compile time in 
 npm i vite-plugin-compile-time -D
 ```
 
+In **vite.config.ts**:
+
 ```ts
 import { defineConfig } from "vite"
 import compileTime from "vite-plugin-compile-time"
@@ -21,6 +23,20 @@ import compileTime from "vite-plugin-compile-time"
 export default defineConfig({
   plugins: [compileTime()],
 })
+```
+
+In **tsconfig.json**:
+
+```json5
+{
+  "compilerOptions": {
+    // ...
+    "types": [
+       // ...,
+      "vite-plugin-compile-time/client"
+    ]
+  }
+}
 ```
 
 ## Usage
