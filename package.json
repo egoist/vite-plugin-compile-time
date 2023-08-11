@@ -25,18 +25,18 @@
   "license": "MIT",
   "devDependencies": {
     "@egoist/prettier-config": "1.0.0",
-    "prettier": "2.5.1",
-    "sucrase": "3.20.3",
-    "tsup": "5.11.9",
-    "typescript": "4.5.4",
-    "vite": "2.7.9",
-    "vitest": "0.0.122"
+    "prettier": "3.0.1",
+    "sucrase": "3.34.0",
+    "tsup": "7.2.0",
+    "typescript": "5.1.6",
+    "vite": "4.4.9",
+    "vitest": "0.34.1"
   },
   "dependencies": {
-    "bundle-require": "^2.2.0",
-    "devalue": "^2.0.1",
-    "esbuild": "^0.14.9",
-    "magic-string": "^0.25.7"
+    "bundle-require": "^4.0.1",
+    "devalue": "^4.3.2",
+    "esbuild": "^0.19.1",
+    "magic-string": "^0.30.2"
   },
   "peerDependencies": {
     "vite": ">=2"

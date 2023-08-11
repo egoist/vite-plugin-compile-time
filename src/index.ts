@@ -2,7 +2,6 @@ import path from "path"
 import { Plugin } from "vite"
 import MagicString from "magic-string"
 import { bundleRequire } from "bundle-require"
-import devalue from "devalue"
 
 type MaybePromise<T> = T | Promise<T>
 
@@ -61,6 +60,7 @@ const createPlugins = (): Plugin[] => {
 
         if (m.length === 0) return
 
+        const devalue = await import('devalue')
         const s = new MagicString(code)
         const dir = path.dirname(id)
         for (const item of m) {
@@ -75,13 +75,14 @@ const createPlugins = (): Plugin[] => {
             const defaultExport: CompileTimeFunction | undefined =
               mod.default || mod
             cache = (defaultExport && (await defaultExport({ root }))) || {}
+
             cache.watchFiles = [
               filepath,
               ...(cache.watchFiles || []),
               ...dependencies.map((p) => path.resolve(p)),
             ]
             if (cache.data) {
-              cache.data = devalue(cache.data)
+              cache.data = devalue.uneval(cache.data)
             }
             loadCache.set(cacheKey, cache)
           }
