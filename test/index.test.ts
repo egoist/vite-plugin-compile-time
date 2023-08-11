@@ -1,7 +1,7 @@
 import { assert, test } from "vitest"
 
 test("compile time data", () => {
-  const res = import.meta.compileTime("./fixture-data.ts")
+  const res = import.meta.compileTime<unknown>("./fixture-data.ts")
   assert.deepEqual(res, {
     a: "a",
     num: 3,
