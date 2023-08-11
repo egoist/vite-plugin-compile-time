@@ -4,6 +4,10 @@
 
 No unreleased changes.
 
+## 0.2.1
+
+- fix: add missing types
+
 ## 0.2.0
 
 - feat: update esbuild
