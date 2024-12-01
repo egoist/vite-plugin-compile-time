@@ -13,6 +13,6 @@ test("compile time data", () => {
 
 test("compile time code", () => {
   let count = 0
-  import.meta.compileTime("./fixture-code.ts")
+  import.meta.compileTime("~/test/fixture-code.ts")
   assert.equal(count, 1)
 })

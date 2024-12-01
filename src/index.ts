@@ -64,11 +64,18 @@ const createPlugins = (): Plugin[] => {
 
         const devalue = await import("devalue")
         const s = new MagicString(code)
-        const dir = path.dirname(id)
+
         for (const item of m) {
           const start = item.index!
           const end = item.index! + item[0].length
-          const filepath = path.resolve(dir, item[1])
+
+          const resolved = await this.resolve(item[1], id)
+
+          if (!resolved) {
+            throw new Error('cannot resolve "' + item[1] + '"')
+          }
+
+          const filepath = resolved.id
 
           const cacheKey = filepath
           let cache = loadCache.get(cacheKey)
