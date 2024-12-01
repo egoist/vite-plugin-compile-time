@@ -55,12 +55,14 @@ const createPlugins = (): Plugin[] => {
           return
 
         const m = [
-          ...code.matchAll(/import\.meta\.compileTime(?:<[\w]*>)?\(['"`]([^'"`]+)['"`]\)/g),
+          ...code.matchAll(
+            /import\.meta\.compileTime(?:<[\w]*>)?\([\n\s]*['"`]([^'"`]+)['"`][\n\s]*\)/g,
+          ),
         ]
 
         if (m.length === 0) return
 
-        const devalue = await import('devalue')
+        const devalue = await import("devalue")
         const s = new MagicString(code)
         const dir = path.dirname(id)
         for (const item of m) {
