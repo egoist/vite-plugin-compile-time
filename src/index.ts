@@ -56,7 +56,7 @@ const createPlugins = (): Plugin[] => {
 
         const m = [
           ...code.matchAll(
-            /import\.meta\.compileTime(?:<[\w]*>)?\([\n\s]*['"`]([^'"`]+)['"`][\n\s]*\)/g,
+            /import\.meta\.compileTime(?:<[\w]*>)?\([\n\s]*['"`]([^'"`]+)['"`],?[\n\s]*\)/g,
           ),
         ]
 
