@@ -48,9 +48,7 @@ import fs from "fs"
 
 const post = compileTime(async () => {
   const post = await fs.promises.readFile("./post.md", "utf8")
-  return {
-    data: { post },
-  }
+  return post
 })
 
 assert.equal(post, "...the content of the post...")
