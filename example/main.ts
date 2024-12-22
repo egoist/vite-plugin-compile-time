@@ -1,7 +1,4 @@
-const data = import.meta.compileTime("./get-data.ts")
+import { a } from "./a"
+import { b } from "./b"
 
-let count = 40
-
-import.meta.compileTime("./generate-code.ts")
-
-console.log(data, count)
+console.log(a, b)

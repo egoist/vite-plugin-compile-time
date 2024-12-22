@@ -1,20 +1,22 @@
 {
   "name": "vite-plugin-compile-time",
   "version": "0.3.2",
+  "type": "module",
   "description": "Do some compile time work in your Vite project",
   "publishConfig": {
     "access": "public"
   },
   "files": [
     "dist",
-    "/client.d.ts"
+    "/client.d.ts",
+    "/inject.js"
   ],
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "exports": {
     ".": {
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
     },
     "./client": {
       "types": "./client.d.ts"
@@ -30,8 +32,9 @@
   "license": "MIT",
   "devDependencies": {
     "@egoist/prettier-config": "1.0.0",
+    "@types/babel__generator": "^7.6.8",
+    "@types/babel__traverse": "^7.20.6",
     "prettier": "3.0.1",
-    "sucrase": "3.34.0",
     "tsup": "8.3.5",
     "typescript": "5.7.2",
     "vite": "6.0.1",
@@ -39,7 +42,11 @@
     "vitest": "2.1.6"
   },
   "dependencies": {
-    "bundle-require": "^5.0.0",
+    "@babel/generator": "^7.26.3",
+    "@babel/parser": "^7.26.3",
+    "@babel/traverse": "^7.26.4",
+    "babel-dead-code-elimination": "^1.0.8",
+    "bundle-require": "^5.1.0",
     "devalue": "^5.1.1",
     "esbuild": "^0.24.0",
     "magic-string": "^0.30.14"
