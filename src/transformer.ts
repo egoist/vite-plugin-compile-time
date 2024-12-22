@@ -11,7 +11,13 @@ import { bundleRequire } from "bundle-require"
 import MagicString from "magic-string"
 import { fileURLToPath } from "url"
 
-const req = createRequire(import.meta.url)
+// Injected by TSUP
+declare const TSUP_FORMAT: "esm" | "cjs" | undefined
+
+const req =
+  typeof TSUP_FORMAT === "undefined" || TSUP_FORMAT === "esm"
+    ? createRequire(import.meta.url)
+    : require
 
 const DIRNAME =
   typeof __dirname === "undefined"
