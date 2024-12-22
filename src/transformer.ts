@@ -141,7 +141,9 @@ export class Transformer {
         if (_filepath === filepath) {
           // add await prefix
           const s = new MagicString(content)
-          s.prepend(`\n\nexport const ${exportName} = {};`)
+          s.prepend(
+            `export const ${exportName} = {};const compileTime=fn=>fn();`,
+          )
 
           for (const m of matches) {
             s.prependLeft(
@@ -153,9 +155,6 @@ export class Transformer {
         }
 
         return content
-      },
-      esbuildOptions: {
-        inject: [path.join(DIRNAME, "../inject.js")],
       },
     })
 

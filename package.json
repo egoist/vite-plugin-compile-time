@@ -8,8 +8,7 @@
   },
   "files": [
     "dist",
-    "/client.d.ts",
-    "/inject.js"
+    "/client.d.ts"
   ],
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
