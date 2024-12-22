@@ -27,7 +27,7 @@ export default defineConfig({
 
 In **tsconfig.json**:
 
-```json
+```jsonc
 {
   "compilerOptions": {
     // ...
