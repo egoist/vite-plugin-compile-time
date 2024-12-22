@@ -1,6 +1,7 @@
 import { assert, test } from "vitest"
-import { data } from "./fixture"
+import { foo, bar } from "./fixture"
 
 test("compile time", () => {
-  assert.equal(data, "hi")
+  assert.equal(foo, "foo")
+  assert.equal(bar, "bar")
 })

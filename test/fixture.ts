@@ -1,3 +1,7 @@
-export const data = compileTime(async () => {
-  return "hi"
+export const foo = compileTime(async () => {
+  return "foo"
+})
+
+export const bar = compileTime(async () => {
+  return "bar"
 })
