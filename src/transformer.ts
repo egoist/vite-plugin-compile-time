@@ -98,6 +98,8 @@ export class Transformer {
       },
     })
 
+    if (matches.length === 0) return
+
     deadCodeElimination(ast, referenced)
 
     const result = generator.default(ast, {
