@@ -140,7 +140,7 @@ export class Transformer {
       readFile(_filepath) {
         const content = fs.readFileSync(_filepath, "utf-8")
 
-        if (_filepath === filepath) {
+        if (_filepath === filepath.replace(/\\/g, "/")) {
           // add await prefix
           const s = new MagicString(content)
           s.prepend(
