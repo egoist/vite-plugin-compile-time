@@ -1,5 +1,5 @@
 import { assert, test } from "vitest"
-import { foo, bar, res } from "./fixture"
+import { foo, bar, res, buffer } from "./fixture"
 
 test("compile time", async () => {
   assert.equal(foo, "foo")
@@ -10,4 +10,8 @@ test("compile time", async () => {
   })
 
   assert.equal(res.headers.get("Content-Type"), "application/json")
+})
+
+test("buffer", () => {
+  assert.equal(buffer.toString(), "hi")
 })

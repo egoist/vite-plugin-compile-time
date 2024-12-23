@@ -18,3 +18,7 @@ export const res = compileTime(async () => {
     },
   )
 })
+
+export const buffer = compileTime(() => {
+  return Buffer.from("hi")
+})

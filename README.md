@@ -43,18 +43,37 @@ In **tsconfig.json**:
 
 ## Usage
 
-Compile-time data:
+Read a file at compile-time:
 
 ```ts
 import fs from "fs"
 
-const post = compileTime(async () => {
-  const post = await fs.promises.readFile("./post.md", "utf8")
-  return post
-})
-
-assert.equal(post, "...the content of the post...")
+const content = compileTime(fs.readFileSync("./post.md", "utf8"))
 ```
+
+For more complex more you can use a function instead:
+
+```ts
+import fs from "fs"
+
+// it also accepts async function
+const post = compileTime(async () => {
+  const copntent = await fs.promises.readFile("./post.md", "utf8")
+  const frontmatter = getFrontmatter(content)
+  return { frontmatter, content }
+})
+```
+
+### Supported data types
+
+- JSON-serializable types like `string`, `number`, `boolean`
+- regular expressions
+- dates
+- Map and Set
+- BigInt
+- ArrayBuffer and Typed Arrays
+- Response
+- Buffer
 
 ## Caveats
 

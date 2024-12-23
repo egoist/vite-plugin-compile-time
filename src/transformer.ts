@@ -176,6 +176,8 @@ export class Transformer {
           status: ${devalue.uneval(value.status)},
           headers: ${devalue.uneval([...value.headers.entries()])}
         })`
+      } else if (value instanceof Buffer) {
+        replacement = `Buffer.from(${devalue.uneval(new Uint8Array(value))})`
       } else {
         replacement = devalue.uneval(value)
       }
