@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-compile-time",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "type": "module",
   "description": "Do some compile time work in your Vite project",
   "publishConfig": {
