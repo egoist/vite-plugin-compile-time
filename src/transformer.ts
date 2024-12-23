@@ -1,7 +1,6 @@
 import fs from "fs"
 import * as devalue from "devalue"
 import { parse } from "@babel/parser"
-import path from "path"
 import { createRequire } from "module"
 import {
   deadCodeElimination,
@@ -9,7 +8,6 @@ import {
 } from "babel-dead-code-elimination"
 import { bundleRequire } from "bundle-require"
 import MagicString from "magic-string"
-import { fileURLToPath } from "url"
 
 // Injected by TSUP
 declare const TSUP_FORMAT: "esm" | "cjs" | undefined
@@ -18,11 +16,6 @@ const req =
   typeof TSUP_FORMAT === "undefined" || TSUP_FORMAT === "esm"
     ? createRequire(import.meta.url)
     : require
-
-const DIRNAME =
-  typeof __dirname === "undefined"
-    ? path.dirname(fileURLToPath(import.meta.url))
-    : __dirname
 
 const extensionsRe = /\.(([jt]sx?)|mjs|cjs|mts|cts|vue|astro|svelte)$/
 type Match = { name: string; start: number; end: number }
@@ -141,12 +134,12 @@ export class Transformer {
         _filepath = _filepath.replace(/\\/g, "/")
         const content = fs.readFileSync(_filepath, "utf-8")
         if (_filepath === filepath) {
-          // add await prefix
           const s = new MagicString(content)
           s.prepend(
             `export const ${exportName} = {};const compileTime=fn=>typeof fn==='function'?fn():fn;`,
           )
 
+          // add await prefix
           for (const m of matches) {
             s.prependLeft(
               m.start,
