@@ -6,7 +6,9 @@
 
 [![npm version](https://badgen.net/npm/v/vite-plugin-compile-time?v=2)](https://npm.im/vite-plugin-compile-time) [![npm downloads](https://badgen.net/npm/dm/vite-plugin-compile-time?v=2)](https://npm.im/vite-plugin-compile-time)
 
-Use this plugin to get data at compile time in your Vite projects.
+## Why
+
+Use this plugin to run code at compile time and inline the return data in your Vite projects.
 
 ## Install
 
