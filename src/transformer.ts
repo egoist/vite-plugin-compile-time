@@ -138,8 +138,8 @@ export class Transformer {
     const { mod, dependencies } = await bundleRequire({
       filepath,
       readFile(_filepath) {
+        _filepath = _filepath.replace(/\\/g, '/')
         const content = fs.readFileSync(_filepath, "utf-8")
-
         if (_filepath === filepath) {
           // add await prefix
           const s = new MagicString(content)
