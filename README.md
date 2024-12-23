@@ -102,6 +102,8 @@ export const content = compileTime(async () => {
 content //=> Response
 ```
 
+However `compileTime` is optional in `.compile.ts` files, you only need it if you don't want to `await` and want type-safety.
+
 ### Supported data types
 
 - JSON-serializable types like `string`, `number`, `boolean`
