@@ -138,7 +138,7 @@ export class Transformer {
     const { mod, dependencies } = await bundleRequire({
       filepath,
       readFile(_filepath) {
-        _filepath = _filepath.replace(/\\/g, '/')
+        _filepath = _filepath.replace(/\\/g, "/")
         const content = fs.readFileSync(_filepath, "utf-8")
         if (_filepath === filepath) {
           // add await prefix
@@ -172,7 +172,10 @@ export class Transformer {
 
       if (value instanceof Response) {
         const str = devalue.uneval(await value.arrayBuffer())
-        replacement = `new Response(${str})`
+        replacement = `new Response(${str}, {
+          status: ${devalue.uneval(value.status)},
+          headers: ${devalue.uneval([...value.headers.entries()])}
+        })`
       } else {
         replacement = devalue.uneval(value)
       }
