@@ -43,12 +43,16 @@ In **tsconfig.json**:
 
 ## Usage
 
-Read a file at compile-time:
+You can use `compileTime` anywhere as long as it's called on the top-level, i.e. not inside a closure:
 
 ```ts
 import fs from "fs"
 
+// ✅
 const content = compileTime(fs.readFileSync("./post.md", "utf8"))
+
+// ❌
+const content = () => compileTime(fs.readFileSync("./post.md", "utf8"))
 ```
 
 For more complex more you can use a function instead:
