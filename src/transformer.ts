@@ -144,7 +144,7 @@ export class Transformer {
           // add await prefix
           const s = new MagicString(content)
           s.prepend(
-            `export const ${exportName} = {};const compileTime=fn=>fn();`,
+            `export const ${exportName} = {};const compileTime=fn=>typeof fn==='function'?fn():fn;`,
           )
 
           for (const m of matches) {
