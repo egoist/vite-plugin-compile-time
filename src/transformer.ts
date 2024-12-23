@@ -1,5 +1,5 @@
 import fs from "fs"
-import { parse } from "@babel/parser"
+import { parse, ParserPlugin } from "@babel/parser"
 import { createRequire } from "module"
 import {
   deadCodeElimination,
@@ -30,6 +30,21 @@ type Match = { name: string; start: number; end: number }
 const isInCompileScript = (filepath: string) =>
   /\.compile\.[jt]sx?$/.test(filepath)
 
+const parseCode = (code: string, filepath: string) => {
+  const isTS = /\.tsx?$/.test(filepath)
+  const isJSX = /\.[jt]sx?$/.test(filepath)
+  const plugins: ParserPlugin[] = []
+
+  if (isTS) {
+    plugins.push("typescript")
+  }
+  if (isJSX) {
+    plugins.push("jsx")
+  }
+
+  return parse(code, { sourceType: "module", plugins })
+}
+
 export class Transformer {
   cache: Map<string, { result?: any; watchFiles?: string[] }> = new Map()
   files: Map<string, string> = new Map()
@@ -57,7 +72,7 @@ export class Transformer {
     const matches: Match[] = []
     this.files.set(filepath, code)
 
-    const ast = parse(code, { sourceType: "module" })
+    const ast = parseCode(code, filepath)
 
     const referenced = findReferencedIdentifiers(ast)
 
@@ -200,7 +215,7 @@ export class Transformer {
     const traverse = req("@babel/traverse") as typeof import("@babel/traverse")
     const t = await import("@babel/types")
 
-    const ast = parse(code, { sourceType: "module" })
+    const ast = parseCode(code, filepath)
 
     const exports: { name: string; isFunction: boolean }[] = []
 
