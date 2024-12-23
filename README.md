@@ -64,6 +64,40 @@ const post = compileTime(async () => {
 })
 ```
 
+### Standalone `.compile.ts` files
+
+Or `.compile.js`
+
+Alternatively, you can use a standalone file to evaluate at compile time:
+
+```ts
+// post.compile.ts
+export const content = fs.readFileSync("./post.md", "utf8")
+
+export const fetchContent = async () => {
+  return fetch("https://example.com")
+}
+
+// main.ts
+import { content, fetchContent } from "./post.compile"
+
+content //=> Buffer
+
+await fetchContent() //=> Response
+```
+
+If you export an async function, you can actually call it without using `await` because it's pre-evaluated before you use it, for type-safe purpose you can wrap the function with `compileTime`:
+
+```ts
+export const content = compileTime(async () => {
+  return fetch("https://example.com")
+})
+
+// Now available as a value
+// You don't even need to call it
+content //=> Response
+```
+
 ### Supported data types
 
 - JSON-serializable types like `string`, `number`, `boolean`

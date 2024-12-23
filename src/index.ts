@@ -32,7 +32,7 @@ const createPlugins = (): Plugin[] => {
   const transformer = new Transformer()
   return [
     {
-      name: "compile-time",
+      name: "compile-time:insert-placeholders",
       enforce: "pre",
       buildStart() {
         transformer.reset()
@@ -73,6 +73,26 @@ const createPlugins = (): Plugin[] => {
         return {
           code: result.code,
           map: result.map,
+        }
+      },
+    },
+
+    {
+      name: "compile-time:import",
+      enforce: "pre",
+
+      async transform(code, id) {
+        const result = await transformer.handleImport(code, id)
+        if (!result) return
+
+        if (result.dependencies) {
+          result.dependencies.forEach((filepath) => {
+            this.addWatchFile(path.resolve(filepath))
+          })
+        }
+
+        return {
+          code: result.code,
         }
       },
     },

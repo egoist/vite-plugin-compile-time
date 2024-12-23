@@ -17,6 +17,9 @@ importers:
       '@babel/traverse':
         specifier: ^7.26.4
         version: 7.26.4
+      '@babel/types':
+        specifier: ^7.26.3
+        version: 7.26.3
       babel-dead-code-elimination:
         specifier: ^1.0.8
         version: 1.0.8
