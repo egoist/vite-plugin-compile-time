@@ -27,18 +27,10 @@ export default defineConfig({
 })
 ```
 
-In **tsconfig.json**:
+Add a `shims.d.ts` with the following code:
 
-```jsonc
-{
-  "compilerOptions": {
-    // ...
-    "types": [
-      // ...,
-      "vite-plugin-compile-time/client"
-    ]
-  }
-}
+```ts
+/// <reference types="vite-plugin-compile-time/client" />
 ```
 
 ## Usage
