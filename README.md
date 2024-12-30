@@ -54,7 +54,7 @@ import fs from "fs"
 
 // it also accepts async function
 const post = compileTime(async () => {
-  const copntent = await fs.promises.readFile("./post.md", "utf8")
+  const content = await fs.promises.readFile("./post.md", "utf8")
   const frontmatter = getFrontmatter(content)
   return { frontmatter, content }
 })
